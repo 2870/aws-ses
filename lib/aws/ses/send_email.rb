@@ -66,6 +66,9 @@ module AWS
         package['ReturnPath'] = options[:return_path] if options[:return_path]
         
         add_array_to_hash!(package, 'ReplyToAddresses', options[:reply_to]) if options[:reply_to]
+
+        puts "==========> html_body: #{options[:html_body]}"
+        puts "==========> to: #{options[:to].to_json}"
         
         request('SendEmail', package)
       end
